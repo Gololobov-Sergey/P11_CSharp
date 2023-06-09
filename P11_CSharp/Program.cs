@@ -1,11 +1,57 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
+using System.Xml.Linq;
 
 namespace P11_CSharp
 {
     internal class Program
     {
+
+        enum Month : long
+        {
+            Jan = 9, Feb, Mar, Apr
+        }
+
+
+        struct Money
+        {
+            public int Grn;
+
+            public int Kop;
+
+            public Money(int g, int k)
+            {
+                Grn = g;
+                Kop = k;
+            }
+
+            public string Print()
+            {
+                return $"{Grn} grn {Kop} kop";
+            }
+        }
+
+
+        static void Func(ref int a, ref int[] arr, out int b)
+        {
+            Console.WriteLine(a);
+            foreach (int i in arr) 
+                Console.Write($"{i} ");
+            Console.WriteLine();
+
+            b = 100;
+            a = 1000;
+            arr = new int[] { 22,33,44};
+
+            Console.WriteLine(a);
+            foreach (int i in arr)
+                Console.Write($"{i} ");
+            Console.WriteLine();
+        }
+
+
         static void Main(string[] args)
         {
             Console.Title = "P11 - Слава Україні!";
@@ -13,6 +59,76 @@ namespace P11_CSharp
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Clear();
+
+
+            ///// 09.06.2023 //////
+            ///
+
+            int a = 5;
+            int[] arr = { 1, 2, 3 };
+            int b = 9;
+
+            Func(ref b, ref arr, out a);
+
+            Console.WriteLine("------------");
+            Console.WriteLine(a);
+            foreach (int i in arr)
+                Console.Write($"{i} ");
+            Console.WriteLine();
+
+            (a, b) = (b, a);
+
+            var t = (2, "65456", 5);
+           
+
+            //Student student = new Student();
+
+            //student.Print();
+
+            //Student.id = 1;
+
+            //student.mark[0] = 10;
+
+            //student.Method(name:"Oleg", id:12);
+
+
+            //Money m = new Money(12, 56);
+            //Money m1 = new Money(4, 23);
+            //Console.WriteLine(m.Print());
+            //Console.WriteLine(m1.Print());
+            //m = m1;
+            //m1.Grn = 1;
+            //Console.WriteLine(m.Print());
+            //Console.WriteLine(m1.Print());
+
+            //object[] arr = { 1, "efwer", m, Month.Mar };
+
+
+
+            //Month m = Month.Jan;
+            //Console.WriteLine(m);
+            //Console.WriteLine(Enum.IsDefined(typeof(Month), 5));
+
+            //Enum.GetValues(typeof(Month))
+            //    .Cast<int>()
+            //    .ToList()
+            //    .ForEach(n => Console.WriteLine(n));
+
+
+            //switch (m)
+            //{
+            //    case Month.Jan:
+            //        break;
+            //    case Month.Feb:
+            //        break;
+            //    case Month.Mar:
+            //        break;
+            //    case Month.Apr:
+            //        break;
+            //    default:
+            //        break;
+            //}
+
 
             //Console.WriteLine("Слава Україні!");
 
@@ -199,24 +315,29 @@ namespace P11_CSharp
 
 
 
-            string str1 = "mama";
+            //string str1 = "mama";
 
-            str1 += " papa, baba";
+            //str1 += " papa, baba";
 
-            Console.WriteLine(str1);
+            //Console.WriteLine(str1);
 
-            Console.WriteLine(str1.EndsWith("pa"));
-            Console.WriteLine(str1.StartsWith("pa"));
-            Console.WriteLine(str1.PadLeft(12, '*'));
-            Console.WriteLine(str1.PadRight(12, '*'));
-            Console.WriteLine(str1.Replace("ma", "ba"));
-            string[] arr = str1.Split(" ,".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-            foreach (string str2 in arr)
-            {
-                Console.WriteLine(str2);
-            }
+            //Console.WriteLine(str1.EndsWith("pa"));
+            //Console.WriteLine(str1.StartsWith("pa"));
+            //Console.WriteLine(str1.PadLeft(12, '*'));
+            //Console.WriteLine(str1.PadRight(12, '*'));
+            //Console.WriteLine(str1.Replace("ma", "ba"));
+            //string[] arr = str1.Split(" ,".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            //foreach (string str2 in arr)
+            //{
+            //    Console.WriteLine(str2);
+            //}
 
-            
+
+
+
+
+
+
 
         }
     }

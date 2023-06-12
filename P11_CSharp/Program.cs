@@ -52,6 +52,17 @@ namespace P11_CSharp
         }
 
 
+        static int SumArr(int a, params int[] arr)
+        {
+            int res = 0;
+            foreach (int i in arr)
+            {
+                res += i;
+            }
+            return res;
+        }
+
+
         static void Main(string[] args)
         {
             Console.Title = "P11 - Слава Україні!";
@@ -61,25 +72,68 @@ namespace P11_CSharp
             Console.Clear();
 
 
+
+            ///// 12.06.2023 //////
+            ///
+
+
+            Matrix matrix = new Matrix(10000, 10000, 5, 6, 8, 2, 4, 7,3,3,3,3,3);
+            //Matrix matrix1 = new Matrix(2, 3);
+            //Console.WriteLine(matrix.Rows);
+            //Console.WriteLine(matrix.Column);
+            //matrix.Print();
+
+
+            matrix.Test();
+
+            //Human human = new Human();
+            //human.Name = "Oleg";
+            //Console.WriteLine(human.Name);
+            //human.ID = 1;
+            //int i = human.ID;
+
+            //Console.WriteLine(human.ID);
+
+
+            //Human human2 = new Human()
+            //{
+            //    Name = "Irina",
+            //    BirthDay = new DateTime(2000, 10, 12),
+            //    ID = 1
+            //};
+
+
+            //Student student = new Student();
+            //student.MMM();
+
             ///// 09.06.2023 //////
             ///
 
-            int a = 5;
-            int[] arr = { 1, 2, 3 };
-            int b = 9;
+            //int[] arr = { 1, 2, 3 };
+            //Console.WriteLine(SumArr( 1, 2, 3, 4, 5 ));
 
-            Func(ref b, ref arr, out a);
 
-            Console.WriteLine("------------");
-            Console.WriteLine(a);
-            foreach (int i in arr)
-                Console.Write($"{i} ");
-            Console.WriteLine();
+            //int a = 5;
+            //int[] arr = { 1, 2, 3 };
+            //int b = 9;
 
-            (a, b) = (b, a);
+            //Func(ref b, ref arr, out a);
 
-            var t = (2, "65456", 5);
-           
+            //Console.WriteLine("------------");
+            //Console.WriteLine(a);
+            //foreach (int i in arr)
+            //    Console.Write($"{i} ");
+            //Console.WriteLine();
+
+            //(a, b) = (b, a);
+
+            //var t = (2, "65456", 5);
+            //Console.WriteLine(t.Item1);
+
+
+
+
+
 
             //Student student = new Student();
 

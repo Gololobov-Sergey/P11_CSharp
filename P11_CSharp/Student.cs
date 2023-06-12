@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P11_CSharp
 {
-    internal class Student
+    internal partial class Student
     {
         static public int id = 10;
 

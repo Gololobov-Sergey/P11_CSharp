@@ -29,10 +29,14 @@ namespace P11_CSharp
             }
         }
 
-        public void Test()
+        public void Test1()
         {
-            //int max = matrix.Cast<int>().Max();
+            int max = matrix.Cast<int>().Max();
 
+        }
+
+        public void Test2()
+        {
             int max = matrix[0, 0];
             for (int i = 0; i < Rows; i++)
             {

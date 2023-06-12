@@ -9,14 +9,14 @@ namespace P11_CSharp
     internal class Human
     {
 
-        public string Name { get; set; } = "No name";
+        public string? Name { get; set; } = "No name";
 
-        public DateTime BirthDay { get; set; }
+        public DateTime? BirthDay { get; set; }
 
 
-        private int id;
+        private int? id;
 
-        public int ID
+        public int? ID
         {
             get { return id; }
             set { id = value; }

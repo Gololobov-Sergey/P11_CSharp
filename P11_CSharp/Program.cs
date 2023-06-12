@@ -77,18 +77,23 @@ namespace P11_CSharp
             ///
 
 
-            Matrix matrix = new Matrix(10000, 10000, 5, 6, 8, 2, 4, 7,3,3,3,3,3);
+            Matrix matrix = new Matrix(10, 10, 5, 6, 8, 2, 4, 7,3,3,3,3,3);
             //Matrix matrix1 = new Matrix(2, 3);
             //Console.WriteLine(matrix.Rows);
             //Console.WriteLine(matrix.Column);
             //matrix.Print();
 
-            using(OperationTimer timer = new OperationTimer())
+            using(OperationTimer timer = new OperationTimer("Test 1"))
             {
-                matrix.Test();
+                matrix.Test1();
             }
 
-           
+            using (OperationTimer timer = new OperationTimer("Test 2"))
+            {
+                matrix.Test2();
+            }
+
+            matrix.Print();
 
             //Human human = new Human();
             //human.Name = "Oleg";

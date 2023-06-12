@@ -83,8 +83,12 @@ namespace P11_CSharp
             //Console.WriteLine(matrix.Column);
             //matrix.Print();
 
+            using(OperationTimer timer = new OperationTimer())
+            {
+                matrix.Test();
+            }
 
-            matrix.Test();
+           
 
             //Human human = new Human();
             //human.Name = "Oleg";

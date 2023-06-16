@@ -3,6 +3,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Channels;
 using System.Xml.Linq;
+using P11_CSharp__;
+using My = P11_CSharp__._111;
+//using static System.Console;
 
 namespace P11_CSharp
 {
@@ -72,28 +75,86 @@ namespace P11_CSharp
             Console.Clear();
 
 
+            ///// 16.06.2023 //////
+            ///
+
+            Student student = new Student();
+
+            Point p1= new Point() { X = 5, Y = 3 };
+            Point p2 = new();
+            p1.X = 100;
+            Console.WriteLine(p1.Print);
+            Console.WriteLine(p2.Print);
+
+            Console.WriteLine(ReferenceEquals(p1, p2));
+
+            Console.WriteLine(p1 == p2);
+
+            p1.Equals(student);
+            if (p1 > p2)
+            {
+
+            }
+
+            if(p2 && p1)
+            {
+                Console.WriteLine("E");
+            }
+            else
+            {
+                Console.WriteLine("He E");
+            }
+
+            float f = (float)p1;
+
+            p1 = 100;
+
+            Console.WriteLine("3+2".GetHashCode());
+            Console.WriteLine("2+3".GetHashCode());
+
+            //Console.WriteLine(p1.Print);
+            //Point p2 = -p1;
+            //Console.WriteLine(p2.Print);
+
+            //Console.WriteLine((++p1).Print);
+            //Console.WriteLine((p1++).Print);
+
+            //Point p3 = p1 - p2;
+            //Console.WriteLine(p3.Print);
+
+            //p1 -= p2;
+            //Console.WriteLine(p1.Print);
+
+            //p1 = p1 * 5;
+
+            //p1 = 5 * p1;
+
+
+
+
+            //Console.WriteLine(p1.Print);
 
             ///// 12.06.2023 //////
             ///
 
 
-            Matrix matrix = new Matrix(10, 10, 5, 6, 8, 2, 4, 7,3,3,3,3,3);
-            //Matrix matrix1 = new Matrix(2, 3);
+            //Matrix matrix = new P11_CSharp__.Matrix(10, 10, 5, 6, 8, 2, 4, 7, 3, 3, 3, 3, 3);
+            //P11_CSharp__.Matrix matrix1 = new P11_CSharp__.Matrix(2, 3);
             //Console.WriteLine(matrix.Rows);
             //Console.WriteLine(matrix.Column);
             //matrix.Print();
 
-            using(OperationTimer timer = new OperationTimer("Test 1"))
-            {
-                matrix.Test1();
-            }
+            //using(OperationTimer timer = new OperationTimer("Test 1"))
+            //{
+            //    matrix.Test1();
+            //}
 
-            using (OperationTimer timer = new OperationTimer("Test 2"))
-            {
-                matrix.Test2();
-            }
+            //using (OperationTimer timer = new OperationTimer("Test 2"))
+            //{
+            //    matrix.Test2();
+            //}
 
-            matrix.Print();
+            //matrix.Print();
 
             //Human human = new Human();
             //human.Name = "Oleg";

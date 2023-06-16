@@ -4,8 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P11_CSharp
+namespace P11_CSharp__
 {
+    namespace _111
+    {
+
+    }
     internal class Matrix
     {
         int[,] matrix;

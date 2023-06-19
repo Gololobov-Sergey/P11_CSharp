@@ -100,7 +100,7 @@ namespace P11_CSharp
         }
 
 
-        public static Point operator &(Point p1, Point p2)
+        public static Point operator & (Point p1, Point p2)
         {
             return new Point();
         }
@@ -114,6 +114,38 @@ namespace P11_CSharp
         public static implicit /*explicit*/ operator Point(int p)
         {
             return new Point() { X = p, Y = 0 };
+        }
+
+        public int this[int index]
+        {
+            get 
+            {
+                if (index == 0) return X;
+                else if(index == 1) return Y;
+                
+                throw new IndexOutOfRangeException();
+            }
+            set 
+            {
+                if (index == 0) X = value;
+                else if (index == 1) Y = value;
+            }
+        }
+
+        public int this[string index]
+        {
+            get
+            {
+                if (index.ToUpper() == "X") return X;
+                else if (index.ToUpper() == "Y") return Y;
+
+                throw new IndexOutOfRangeException();
+            }
+            set
+            {
+                if (index.ToUpper() == "X") X = value;
+                else if (index.ToUpper() == "Y") Y = value;
+            }
         }
     }
 }

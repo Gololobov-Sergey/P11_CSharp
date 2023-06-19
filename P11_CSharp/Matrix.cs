@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P11_CSharp__
+namespace P11_CSharp
 {
     namespace _111
     {
@@ -52,30 +52,37 @@ namespace P11_CSharp__
         }
 
 
-        public void Print()
+        public int this[int i, int j]
         {
-            //int max = array.Cast<int>().Max();
+            get { return matrix[i, j]; }
+            set { matrix[i, j] = value; }
+        }
 
-            int max = matrix[0,0];
+        public override string ToString()
+        {
+            int max = matrix[0, 0];
             for (int i = 0; i < Rows; i++)
             {
-                for (int j = 0; j < Column;j++)
+                for (int j = 0; j < Column; j++)
                 {
-                    max = matrix[i,j] < max ? max : matrix[i,j];
+                    max = matrix[i, j] < max ? max : matrix[i, j];
                 }
             }
 
             int height = max.ToString().Length;
 
+            StringBuilder sb = new StringBuilder();
+
             for (int i = 0; i < Rows; i++)
             {
                 for (int j = 0; j < Column; j++)
                 {
-                    Console.Write($"{matrix[i,j]}".PadLeft(height+1));
+                    sb.Append($"{matrix[i, j]}".PadLeft(height + 1));
                 }
-                Console.WriteLine();
+                sb.Append("\n");
             }
 
+            return sb.ToString();
         }
     }
 }

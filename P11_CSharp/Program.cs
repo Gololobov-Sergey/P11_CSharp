@@ -3,9 +3,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Channels;
 using System.Xml.Linq;
-using P11_CSharp__;
-using My = P11_CSharp__._111;
-//using static System.Console;
+//using P11_CSharp__;
+//using My = P11_CSharp__._111;
+
 
 namespace P11_CSharp
 {
@@ -75,42 +75,105 @@ namespace P11_CSharp
             Console.Clear();
 
 
+            ///// 19.06.2023 //////
+            ///
+
+            //Human human = new Human(0, "Oleg I", new DateTime(2000, 10, 15));
+            Human employee1 = new Employee(1, "Oleg II", new DateTime(2000, 10, 15), 10000);
+            Human employee2 = new Director(1, "Irina", new DateTime(2001, 10, 15), 100);
+            Human employee3 = new CleaningManager(1, "Maria", new DateTime(1950, 10, 15), 200);
+
+            Human[] humans = new Human[] { employee1, employee2, employee3 };
+            foreach (Human item in humans)
+            {
+                Console.WriteLine(item);
+
+                try
+                {
+                    ((Employee)item).GetInfoEmployee();
+                }
+                catch
+                {
+                }
+
+
+                Director dir = item as Director;
+                if(dir != null)
+                {
+                    dir.GetInfoDirector();
+                }
+
+
+
+                if(item is CleaningManager)
+                {
+                    (item as CleaningManager).GetInfoCleaningManager();
+                }
+
+            }
+
+
+
+            //Stud stud = new Stud() { Name = "Oleg" };
+            //stud[Course.UML] = 10;
+            //stud[Course.CSharp] = 10;
+            //stud[Course.UML] = 100;
+            //stud[Course.UML] = 12;
+            //stud[Course.SQL] = 11;
+            //stud[Course.CPP] = 10;
+            //stud[Course.UML] = 10;
+            //stud.Print();
+            //stud.Print(Course.UML);
+            //Console.WriteLine();
+
+
+            Matrix matrix = new Matrix(4, 3, 5, 6, 8, 2, 4, 7, 3, 3, 3, 3, 3);
+            matrix[2, 1] = 999;
+            Console.WriteLine(matrix);
+            //Console.WriteLine(matrix[2,1]);
+
+            //Point p1 = new Point() { X = 5, Y = 3 };
+            //Console.WriteLine(p1[0]);
+            //Console.WriteLine(p1[1]);
+            //Console.WriteLine(p1["X"]);
+            //Console.WriteLine(p1["y"]);
+
             ///// 16.06.2023 //////
             ///
 
-            Student student = new Student();
+            //Student student = new Student();
 
-            Point p1= new Point() { X = 5, Y = 3 };
-            Point p2 = new();
-            p1.X = 100;
-            Console.WriteLine(p1.Print);
-            Console.WriteLine(p2.Print);
+            //Point p1= new Point() { X = 5, Y = 3 };
+            //Point p2 = new();
+            //p1.X = 100;
+            //Console.WriteLine(p1.Print);
+            //Console.WriteLine(p2.Print);
 
-            Console.WriteLine(ReferenceEquals(p1, p2));
+            //Console.WriteLine(ReferenceEquals(p1, p2));
 
-            Console.WriteLine(p1 == p2);
+            //Console.WriteLine(p1 == p2);
 
-            p1.Equals(student);
-            if (p1 > p2)
-            {
+            //p1.Equals(student);
+            //if (p1 > p2)
+            //{
 
-            }
+            //}
 
-            if(p2 && p1)
-            {
-                Console.WriteLine("E");
-            }
-            else
-            {
-                Console.WriteLine("He E");
-            }
+            //if(p2 && p1)
+            //{
+            //    Console.WriteLine("E");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("He E");
+            //}
 
-            float f = (float)p1;
+            //float f = (float)p1;
 
-            p1 = 100;
+            //p1 = 100;
 
-            Console.WriteLine("3+2".GetHashCode());
-            Console.WriteLine("2+3".GetHashCode());
+            //Console.WriteLine("3+2".GetHashCode());
+            //Console.WriteLine("2+3".GetHashCode());
 
             //Console.WriteLine(p1.Print);
             //Point p2 = -p1;

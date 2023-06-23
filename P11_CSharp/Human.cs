@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P11_CSharp
 {
-    public class Human
+    public abstract class Human
     {
 
         public string? Name { get; set; } = "No name";
@@ -37,14 +37,23 @@ namespace P11_CSharp
         {
             return $"ID: {ID}, Name: {Name}, BD: {BirthDay.Value.ToShortDateString()}";
         }
+
+        public abstract void Work();
+
+        public override int GetHashCode()
+        {
+            return $"ID: {ID}, Name: {Name}, BD: {BirthDay.Value.ToShortDateString()}".GetHashCode();
+        }
     }
 
 
-    public /*sealed*/ class Employee : Human
+    public /*sealed*/ class Employee : Human, ISpeaking
     {
         new int? _id;
 
-        int _salary;
+        public int _salary;
+
+        public List<string> Lengauge { get; } = new List<string>();
 
         public Employee(int id, string name, DateTime bd, int salary) : base(id, name, bd)
         {
@@ -62,9 +71,26 @@ namespace P11_CSharp
         {
             return base.ToString() + $", Salary: {_salary}";
         }
+
+        public override void Work()
+        {
+            Console.WriteLine("Я працюю");
+        }
+
+        public void Speak(string language)
+        {
+            if(Lengauge.Contains(language))
+            {
+                Console.WriteLine($"Я добре спілкуюсь на мові {language}");
+            }
+            else
+            {
+                Console.WriteLine($"Я не знаю мову {language}");
+            }
+        }
     }
 
-    public class Director : Human
+    public class Director : Human, ISpeaking
     {
         int countPersonal;
         public Director(int id, string name, DateTime bd, int cp) : base(id, name, bd)
@@ -72,9 +98,23 @@ namespace P11_CSharp
             countPersonal = cp;
         }
 
+        public List<string> Lengauge { get; } = new List<string>();
+
         public void GetInfoDirector()
         {
             Console.WriteLine("I`m Director");
+        }
+
+        public void Speak(string language)
+        {
+            if (Lengauge.Contains(language))
+            {
+                Console.WriteLine($"Я відмінно спілкуюсь на мові {language}");
+            }
+            else
+            {
+                Console.WriteLine($"Я не знаю мову {language}");
+            }
         }
 
         public override string ToString()
@@ -82,10 +122,14 @@ namespace P11_CSharp
             return base.ToString() + $", Count Personal: {countPersonal}";
         }
 
+        public override void Work()
+        {
+            Console.WriteLine("Я керую людьми");
+        }
     }
 
 
-    public class CleaningManager : Human
+    public class CleaningManager : Human, ISpeaking
     {
         int area;
         public CleaningManager(int id, string name, DateTime bd, int a) : base(id, name, bd)
@@ -93,15 +137,50 @@ namespace P11_CSharp
             area = a;
         }
 
+        public List<string> Lengauge { get; } = new List<string>();
+
         public void GetInfoCleaningManager()
         {
             Console.WriteLine("I`m CleaningManager");
+        }
+
+        public void Speak(string language)
+        {
+            Console.WriteLine($"Я не знаю мову {language}");
         }
 
         public override string ToString()
         {
             return base.ToString() + $", Area: {area}";
         }
+
+        public override void Work()
+        {
+            Console.WriteLine("Я прибираю приміщення");
+        }
+
+        
     }
 
+    public class Worker : Human
+    {
+        public int IsWorking
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+
+        public override void Work()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Info(int num, DateTime name)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }

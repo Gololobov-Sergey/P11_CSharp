@@ -40,13 +40,13 @@ namespace P11_CSharp
         static void Func(ref int a, ref int[] arr, out int b)
         {
             Console.WriteLine(a);
-            foreach (int i in arr) 
+            foreach (int i in arr)
                 Console.Write($"{i} ");
             Console.WriteLine();
 
             b = 100;
             a = 1000;
-            arr = new int[] { 22,33,44};
+            arr = new int[] { 22, 33, 44 };
 
             Console.WriteLine(a);
             foreach (int i in arr)
@@ -65,6 +65,12 @@ namespace P11_CSharp
             return res;
         }
 
+        static void StudyLanguage(string language, ISpeaking human)
+        {
+            human.Lengauge.Add(language);
+            Console.WriteLine($"{(human as Human).Name} пройшов навчання мови {language}");
+            human.Speak(language);
+        }
 
         static void Main(string[] args)
         {
@@ -74,43 +80,67 @@ namespace P11_CSharp
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Clear();
 
+            ///// 23.06.2023 //////
+            ///
+
+            ISpeaking[] empl = {
+                new Employee(1, "Oleg II", new DateTime(2000, 10, 15), 10000),
+                new Director(1, "Irina", new DateTime(2001, 10, 15), 100),
+                new CleaningManager(1, "Maria", new DateTime(1950, 10, 15), 200)
+            };
+
+            foreach (var item in empl)
+            {
+                StudyLanguage("EN", item);
+            }
+
+            empl[0].Speak("EN");
+
+            //Human employee1 = new Employee(1, "Oleg II", new DateTime(2000, 10, 15), 10000);
+            //var c = employee1.GetType().GetMethods();
+            //foreach (var item in c)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             ///// 19.06.2023 //////
             ///
 
             //Human human = new Human(0, "Oleg I", new DateTime(2000, 10, 15));
-            Human employee1 = new Employee(1, "Oleg II", new DateTime(2000, 10, 15), 10000);
-            Human employee2 = new Director(1, "Irina", new DateTime(2001, 10, 15), 100);
-            Human employee3 = new CleaningManager(1, "Maria", new DateTime(1950, 10, 15), 200);
+            //Human employee1 = new Employee(1, "Oleg II", new DateTime(2000, 10, 15), 10000);
+            //Human employee2 = new Director(1, "Irina", new DateTime(2001, 10, 15), 100);
+            //Human employee3 = new CleaningManager(1, "Maria", new DateTime(1950, 10, 15), 200);
 
-            Human[] humans = new Human[] { employee1, employee2, employee3 };
-            foreach (Human item in humans)
-            {
-                Console.WriteLine(item);
+            //Human[] humans = new Human[] { employee1, employee2, employee3 };
+            //foreach (Human item in humans)
+            //{
+            //    Console.WriteLine(item);
+            //    item.Work();
+            //    Console.WriteLine(item.GetHashCode());
 
-                try
-                {
-                    ((Employee)item).GetInfoEmployee();
-                }
-                catch
-                {
-                }
-
-
-                Director dir = item as Director;
-                if(dir != null)
-                {
-                    dir.GetInfoDirector();
-                }
+            //    try
+            //    {
+            //        ((Employee)item).GetInfoEmployee();
+            //    }
+            //    catch
+            //    {
+            //    }
 
 
+            //    Director dir = item as Director;
+            //    if(dir != null)
+            //    {
+            //        dir.GetInfoDirector();
+            //    }
 
-                if(item is CleaningManager)
-                {
-                    (item as CleaningManager).GetInfoCleaningManager();
-                }
 
-            }
+
+            //    if(item is CleaningManager)
+            //    {
+            //        (item as CleaningManager).GetInfoCleaningManager();
+            //    }
+
+            //}
 
 
 
@@ -127,9 +157,9 @@ namespace P11_CSharp
             //Console.WriteLine();
 
 
-            Matrix matrix = new Matrix(4, 3, 5, 6, 8, 2, 4, 7, 3, 3, 3, 3, 3);
-            matrix[2, 1] = 999;
-            Console.WriteLine(matrix);
+            //Matrix matrix = new Matrix(4, 3, 5, 6, 8, 2, 4, 7, 3, 3, 3, 3, 3);
+            //matrix[2, 1] = 999;
+            //Console.WriteLine(matrix);
             //Console.WriteLine(matrix[2,1]);
 
             //Point p1 = new Point() { X = 5, Y = 3 };

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -8,10 +9,16 @@ using System.Threading.Tasks;
 namespace P11_CSharp
 {
 
-    public class StudentCard
+    public class StudentCard : IComparable
     {
         public string Series { get; set; }
         public int Number { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            StudentCard sc = obj as StudentCard;
+            return (Series + Number.ToString()).CompareTo(sc.Series + sc.Number.ToString());
+        }
 
         public override string ToString()
         {
@@ -19,12 +26,23 @@ namespace P11_CSharp
         }
     }
 
-    public class Student
+    public class Student : IComparable
     {
+        public static IComparer FromBirthDay { get { return new DateComparer(); } }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime BirthDay { get; set; }
         public StudentCard StudentCard { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            if(obj is  Student)
+            {
+                Student s = (Student)obj;
+                return (LastName+FirstName).CompareTo(s.LastName + s.FirstName);
+            }
+            throw new ArgumentException("Not Student!!!");
+        }
 
         public override string ToString()
         {
@@ -33,7 +51,7 @@ namespace P11_CSharp
     }
 
 
-    class Group
+    class Group : IEnumerable
     {
         Student[] students;
 
@@ -99,8 +117,44 @@ namespace P11_CSharp
                 Console.WriteLine(item);
             }
         }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return students.GetEnumerator();
+        }
+
+        public void Sort()
+        {
+            Array.Sort(students);
+        }
+
+        public void Sort(IComparer comparer)
+        {
+            Array.Sort(students, comparer);
+        }
     }
-    
+
+
+    class DateComparer : IComparer
+    {
+        public int Compare(object x, object y)
+        {
+            if(x is Student &&  y is Student)
+            {
+                return DateTime.Compare((x as Student).BirthDay, (y as Student).BirthDay);  
+            }
+
+            throw new NotImplementedException();
+        }
+    }
+
+    class StudentCardComparer : IComparer
+    {
+        public int Compare(object x, object y)
+        {
+            return (x as Student).StudentCard.CompareTo((y as Student).StudentCard);
+        }
+    }
 
 
 

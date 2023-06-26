@@ -85,13 +85,27 @@ namespace P11_CSharp
 
 
             Group group = new Group();
-            group.Print();
+            
+            foreach (Student item in group)
+            {
+                Console.WriteLine(item);
+            }
 
+            //group.Sort(new DateComparer());
+
+            group.Sort(Student.FromBirthDay);
+
+            Console.WriteLine();
+
+            foreach (Student item in group)
+            {
+                Console.WriteLine(item);
+            }
 
             //Matrix matrix = new Matrix(4, 3, 5, 6, 8, 2, 4, 7, 3, 3, 3, 3, 3);
             //matrix.Show("Matrix :");
 
-            
+
 
             //ShowData s = new ShowData();
             //((ICC)s).Show();

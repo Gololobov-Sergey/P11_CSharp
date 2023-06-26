@@ -80,21 +80,48 @@ namespace P11_CSharp
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Clear();
 
+            ///// 26.06.2023 //////
+            ///
+
+
+            Group group = new Group();
+            group.Print();
+
+
+            //Matrix matrix = new Matrix(4, 3, 5, 6, 8, 2, 4, 7, 3, 3, 3, 3, 3);
+            //matrix.Show("Matrix :");
+
+            
+
+            //ShowData s = new ShowData();
+            //((ICC)s).Show();
+
+            //IAA ia = new ShowData();
+            //ia.Show();
+
+            //IBB ib = new ShowData();
+            //ib.Show();
+
+            //ICC ic = new ShowData();
+            //ic.Show();
+
             ///// 23.06.2023 //////
             ///
 
-            ISpeaking[] empl = {
-                new Employee(1, "Oleg II", new DateTime(2000, 10, 15), 10000),
-                new Director(1, "Irina", new DateTime(2001, 10, 15), 100),
-                new CleaningManager(1, "Maria", new DateTime(1950, 10, 15), 200)
-            };
+            //ISpeaking[] empl = {
+            //    new Employee(1, "Oleg II", new DateTime(2000, 10, 15), 10000),
+            //    new Director(1, "Irina", new DateTime(2001, 10, 15), 100),
+            //    new CleaningManager(1, "Maria", new DateTime(1950, 10, 15), 200)
+            //};
 
-            foreach (var item in empl)
-            {
-                StudyLanguage("EN", item);
-            }
+            //foreach (var item in empl)
+            //{
+            //    StudyLanguage("EN", item);
+            //}
 
-            empl[0].Speak("EN");
+            //empl[0].Speak("EN");
+
+            //Console.WriteLine((empl[1] as Director)["name"]);
 
             //Human employee1 = new Employee(1, "Oleg II", new DateTime(2000, 10, 15), 10000);
             //var c = employee1.GetType().GetMethods();

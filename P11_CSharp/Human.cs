@@ -90,12 +90,25 @@ namespace P11_CSharp
         }
     }
 
-    public class Director : Human, ISpeaking
+    public class Director : Human, ISpeaking, IIndex
     {
         int countPersonal;
         public Director(int id, string name, DateTime bd, int cp) : base(id, name, bd)
         {
             countPersonal = cp;
+        }
+
+        public string this[string index] {
+            get { 
+                if (index == "name") 
+                    return Name;
+                return "";
+            }
+            set
+            {
+                if (index == "name")
+                    Name= value;          
+            }
         }
 
         public List<string> Lengauge { get; } = new List<string>();

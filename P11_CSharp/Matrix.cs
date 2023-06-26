@@ -10,7 +10,16 @@ namespace P11_CSharp
     {
 
     }
-    internal class Matrix
+
+
+    interface IOutput
+    {
+        void Show();
+
+        void Show(string info);
+    }
+
+    internal class Matrix : IOutput
     {
         int[,] matrix;
 
@@ -83,6 +92,17 @@ namespace P11_CSharp
             }
 
             return sb.ToString();
+        }
+
+        public void Show()
+        {
+            Console.WriteLine(this.ToString());
+        }
+
+        public void Show(string info)
+        {
+            Console.WriteLine(info);
+            Console.WriteLine(this.ToString());
         }
     }
 }

@@ -9,17 +9,12 @@ namespace P11_CSharp
 {
     internal abstract class Figure
     {
-        public abstract float Area();
+       
     }
 
 
     class Circle : Figure
     {
-        public int Radius { get; set; }
-
-        public override float Area()
-        {
-            return (float)Math.PI * Radius * Radius;
-        }
+        
     }
 }

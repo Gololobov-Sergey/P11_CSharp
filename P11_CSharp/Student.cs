@@ -9,10 +9,15 @@ using System.Threading.Tasks;
 namespace P11_CSharp
 {
 
-    public class StudentCard : IComparable
+    public class StudentCard : IComparable, ICloneable
     {
         public string Series { get; set; }
         public int Number { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
 
         public int CompareTo(object obj)
         {
@@ -26,13 +31,27 @@ namespace P11_CSharp
         }
     }
 
-    public class Student : IComparable
+    public class Student : IComparable, ICloneable
     {
         public static IComparer FromBirthDay { get { return new DateComparer(); } }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime BirthDay { get; set; }
         public StudentCard StudentCard { get; set; }
+
+        public object Clone()
+        {
+            Student temp = (Student)this.MemberwiseClone();
+            
+            temp.StudentCard = this.StudentCard.Clone() as StudentCard;
+            
+            //temp.StudentCard = new StudentCard
+            //{
+            //    Series = this.StudentCard.Series,
+            //    Number = this.StudentCard.Number,
+            //};
+            return temp;    
+        }
 
         public int CompareTo(object obj)
         {

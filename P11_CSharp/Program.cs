@@ -80,6 +80,36 @@ namespace P11_CSharp
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Clear();
 
+            ///// 30.06.2023 //////
+            ///
+            /// 
+
+
+            ConsoleMenu.SelectVertical(HPosition.Center, 
+                VPosition.Center, HorizontalAlignment.Center, 
+                "Menu 1", "Menu 2", "Menu 3");
+
+            Student st = new Student
+            {
+                LastName = "Petrov",
+                FirstName = "Oleg",
+                BirthDay = new DateTime(2000, 10, 12),
+                StudentCard = new StudentCard
+                {
+                    Series = "AB",
+                    Number = 123456
+                }
+            };
+
+            Console.WriteLine(st);
+
+            Student st2 = (Student)st.Clone();
+
+            st2.StudentCard.Series = "XX";
+
+            Console.WriteLine(st);
+            Console.WriteLine(st2);
+
             ///// 26.06.2023 //////
             ///
 

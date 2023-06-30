@@ -84,53 +84,62 @@ namespace P11_CSharp
             ///
             /// 
 
+            //FigureCollection figures = new FigureCollection();
+            //foreach (Figure f in figures.GetList)
+            //{
 
-            ConsoleMenu.SelectVertical(HPosition.Center, 
-                VPosition.Center, HorizontalAlignment.Center, 
-                "Menu 1", "Menu 2", "Menu 3");
+            //}
 
-            Student st = new Student
-            {
-                LastName = "Petrov",
-                FirstName = "Oleg",
-                BirthDay = new DateTime(2000, 10, 12),
-                StudentCard = new StudentCard
-                {
-                    Series = "AB",
-                    Number = 123456
-                }
-            };
 
-            Console.WriteLine(st);
+            App app = new App();
+            app.Menu();
 
-            Student st2 = (Student)st.Clone();
+            //ConsoleMenu.SelectVertical(HPosition.Center, 
+            //    VPosition.Center, HorizontalAlignment.Center, 
+            //    "Menu 1", "Menu 2", "Menu 3");
 
-            st2.StudentCard.Series = "XX";
+            //Student st = new Student
+            //{
+            //    LastName = "Petrov",
+            //    FirstName = "Oleg",
+            //    BirthDay = new DateTime(2000, 10, 12),
+            //    StudentCard = new StudentCard
+            //    {
+            //        Series = "AB",
+            //        Number = 123456
+            //    }
+            //};
 
-            Console.WriteLine(st);
-            Console.WriteLine(st2);
+            //Console.WriteLine(st);
+
+            //Student st2 = (Student)st.Clone();
+
+            //st2.StudentCard.Series = "XX";
+
+            //Console.WriteLine(st);
+            //Console.WriteLine(st2);
 
             ///// 26.06.2023 //////
             ///
 
 
-            Group group = new Group();
-            
-            foreach (Student item in group)
-            {
-                Console.WriteLine(item);
-            }
+            //Group group = new Group();
+
+            //foreach (Student item in group)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             //group.Sort(new DateComparer());
 
-            group.Sort(Student.FromBirthDay);
+            //group.Sort(Student.FromBirthDay);
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
-            foreach (Student item in group)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (Student item in group)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             //Matrix matrix = new Matrix(4, 3, 5, 6, 8, 2, 4, 7, 3, 3, 3, 3, 3);
             //matrix.Show("Matrix :");

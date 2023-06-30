@@ -162,7 +162,7 @@ namespace P11_CSharp
             }
             Console.BackgroundColor = bg;
             Console.ForegroundColor = fg;
-
+            Console.Clear();
             return pos;
         }
 
